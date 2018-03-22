@@ -23,7 +23,7 @@ function dockerRun(){
 }
 
 
-dockerRun "bibliome/uc-tdm-as-d" "alvisnlp plans/tag_xmi.plan" $(pwd)/xmiINWOT/ $(pwd)/xmiINWOT/ $(pwd)/uc-tdm-as-dOUT/ $(pwd)/uc-tdm-as-dOUT/ "-m 2024M"
-#dockerRun "bibliome/segmenter" "alvisnlp alvis.segmenter.plan" $(pwd)/xmiIN/ $(pwd)/xmiIN/ $(pwd)/segmenterOUT/ $(pwd)/segmenterOUT/ 
+#dockerRun "bibliome/uc-tdm-as-d" "alvisnlp plans/tag_xmi.plan" $(pwd)/xmiININRASample/ $(pwd)/xmiININRASample/ $(pwd)/uc-tdm-as-dOUT/ $(pwd)/uc-tdm-as-dOUT/ "--memory 4000M"
+dockerRun "bibliome/segmenter" "alvisnlp -verbose alvis.segmenter.plan" $(pwd)/xmiININRASample/ $(pwd)/xmiININRASample/ $(pwd)/segmenterOUT/ $(pwd)/segmenterOUT/ 
 #dockerRun "openminted/uc-ss-module-ner" "" $(pwd)/xmiIN/ $(pwd)/xmiIN/ $(pwd)/uc-ss-module-nerOUT/ $(pwd)/uc-ss-module-nerOUT/ 
 
