@@ -9,14 +9,17 @@ function dockerRun(){
 	contIN=$4
 	hostOT=$5
 	contOT=$6
+	options=$7
 	# Print params
 	echo "image: " $image
 	echo "executor: " $command
 	# Pull & run
 	sudo docker pull $image
-	sudo docker run  -v $hostIN:$contIN -v $hostOT:$contOT $image $command --input $contIN --ouput $contOT
+	dockerRunCommand="sudo docker run  $options -v $hostIN:$contIN -v $hostOT:$contOT $image $command --input $contIN --ouput $contOT"
+	echo $dockerRunCommand
+	$dockerRunCommand
 }
 
 
-dockerRun "bibliome/uc-tdm-as-d" "alvisnlp plans/tag_xmi.plan" $(pwd)/xmiIN/ $(pwd)/xmiIN/ $(pwd)/xmiOUT/ $(pwd)/xmiOUT/ 
+dockerRun "bibliome/uc-tdm-as-d" "alvisnlp plans/tag_xmi.plan" $(pwd)/xmiIN/ $(pwd)/xmiIN/ $(pwd)/xmiOUT/ $(pwd)/xmiOUT/ "-m 2024M"
 
